@@ -727,11 +727,9 @@
     <script src="{{asset('js/tawk-chat.js')}}"></script>
 
 
+    @yield('javascript')
 
      {{-- End Of Javascript --}}
 
-
-
-    
 </body>
 </html>
