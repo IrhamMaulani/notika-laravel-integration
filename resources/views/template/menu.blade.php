@@ -103,6 +103,11 @@
     </div>
     <!-- Mobile Menu end -->
 
+ 
+   
+   
+   
+
 
 <div class="main-menu-area mg-tb-40">
         <div class="container">
@@ -111,20 +116,15 @@
                     <ul class="nav nav-tabs notika-menu-wrap menu-it-icon-pro">
                         <li class="active "><a class="active-single" href=""><i class="notika-icon {{config('notika.icon')}}"></i> Home</a>
                         </li>
-                        <li><a data-toggle="tab" href="#mailbox"><i class="notika-icon notika-mail"></i> Email</a>
+                        
+
+                         @foreach (config('notika.menu')  as $item)
+                    
+
+                     <li><a data-toggle="tab" href="#mailbox"><i class="notika-icon {{$item['icon']}} "></i>  {{$item['text']}}</a>
                         </li>
-                        <li><a data-toggle="tab" href="#Interface"><i class="notika-icon notika-edit"></i> Interface</a>
-                        </li>
-                        <li><a data-toggle="tab" href="#Charts"><i class="notika-icon notika-bar-chart"></i> Charts</a>
-                        </li>
-                        <li><a data-toggle="tab" href="#Tables"><i class="notika-icon notika-windows"></i> Tables</a>
-                        </li>
-                        <li><a data-toggle="tab" href="#Forms"><i class="notika-icon notika-form"></i> Forms</a>
-                        </li>
-                        <li><a data-toggle="tab" href="#Appviews"><i class="notika-icon notika-app"></i> App views</a>
-                        </li>
-                        <li><a data-toggle="tab" href="#Page"><i class="notika-icon notika-support"></i> Pages</a>
-                        </li>
+                        @endforeach
+                     
                     </ul>
                     <div class="tab-content custom-menu-content">
                         <div id="Home" class="tab-pane in active notika-tab-menu-bg animated flipInX">
