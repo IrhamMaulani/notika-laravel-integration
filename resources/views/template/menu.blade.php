@@ -105,8 +105,16 @@
 
  
    
-   
-   
+{{--    
+   @if (\Request::is(''))  
+{{" Companies menu"}}
+@endif --}}
+
+
+    
+
+
+
 
 
 <div class="main-menu-area mg-tb-40">
@@ -115,21 +123,25 @@
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <ul class="nav nav-tabs notika-menu-wrap menu-it-icon-pro">
 
-
-                        
-
                         {{-- for nested menu --}}
                          @foreach (config('notika.menus')  as $item)
 
                          {{-- {{dd{$item}}} --}}
 
               @if (isset($item['target']))
-                        <li><a data-toggle="tab" href="{{'#' . $item['target']}}"><i class="notika-icon {{$item['icon']}} "></i>  {{$item['text']}}</a>
+                        <li><a data-toggle="tab" href="{{'#'. $item['target']}}"><i class="notika-icon {{$item['icon']}} "></i>  {{$item['text']}}</a>
                         </li>
 
                         @else
-                        {{-- for single menu --}}             
-                          <li class="active "><a class="active-single" href=""><i class="notika-icon {{$item['icon']}}"></i> Home</a>
+                        {{-- for single menu --}}     
+           
+                    <li class="{{ request()->is($item['url']) ? 'active' : '' }}">
+                           
+                        
+                        <a class="active-single" href="{{$item['url']}}"><i class="notika-icon {{$item['icon']}}"></i> Home</a>
+
+                         
+
                         </li>
                          {{-- end single menu --}}
                         @endif

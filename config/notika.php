@@ -11,27 +11,22 @@ return [
       'menus'    =>  [
             [
                   'text' =>   'Home',
-                  'url'  =>   'index',
+                  'url'  =>   '/',
                   'icon' =>   'notika-house',
             ],
       [
-            'text' => 'Try',
-            'url'  => 'index',
-            'icon' => 'notika-house',
+            'text' => 'Data',
+            'icon' => 'notika-app',
             'target' => 'mailbox',
       ],
 
        [
-            'text' => 'coba',
-            'url'  => 'index',
-            'icon' => 'notika-house',
+            'text' => 'Wew',
+            'icon' => 'notika-draft',
             'target' => 'Interface',
       ],
 
       ],
-
-
-
 ];
 
 
