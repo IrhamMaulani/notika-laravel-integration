@@ -18,6 +18,10 @@ return [
             'text' => 'Data',
             'icon' => 'notika-app',
             'target' => 'mailbox',
+            'nested' =>[
+                  'text' => 'main-data',
+                  'url' => 'data'
+            ],
       ],
 
        [

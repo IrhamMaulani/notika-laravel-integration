@@ -126,19 +126,24 @@
                         {{-- for nested menu --}}
                          @foreach (config('notika.menus')  as $item)
 
-                         {{-- {{dd{$item}}} --}}
+                
 
               @if (isset($item['target']))
                         <li><a data-toggle="tab" href="{{'#'. $item['target']}}"><i class="notika-icon {{$item['icon']}} "></i>  {{$item['text']}}</a>
                         </li>
 
                         @else
-                        {{-- for single menu --}}     
+                        {{-- for single menu --}}    
+                        
+                     
            
                     <li class="{{ request()->is($item['url']) ? 'active' : '' }}">
                            
                         
-                        <a class="active-single" href="{{$item['url']}}"><i class="notika-icon {{$item['icon']}}"></i> Home</a>
+                        <a class="active-single" href="
+                            {{ $item['url'] == '/' ? url('/') : $item['url'] }}">
+                        
+                        <i class="notika-icon {{$item['icon']}}"> </i>{{$item['text']}}</a>
 
                          
 
