@@ -60,6 +60,8 @@
 		============================================ -->
     <link href="{{ asset('css/responsive.css') }}" rel="stylesheet">
 
+     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
+
      @yield('css')
 
     <!-- modernizr JS
@@ -79,7 +81,7 @@
             <div class="row">
                 <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
                     <div class="logo-area">
-                        <a href="#"><img src="img/logo/logo.png" alt="" /></a>
+                       <h3 class="title">{{config('notika.title')}}</h3>
                     </div>
                 </div>
                 <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
