@@ -114,15 +114,26 @@
             <div class="row">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <ul class="nav nav-tabs notika-menu-wrap menu-it-icon-pro">
-                        <li class="active "><a class="active-single" href=""><i class="notika-icon {{config('notika.icon')}}"></i> Home</a>
-                        </li>
+
+
                         
 
-                         @foreach (config('notika.menu')  as $item)
-                    
+                        {{-- for nested menu --}}
+                         @foreach (config('notika.menus')  as $item)
 
-                     <li><a data-toggle="tab" href="#mailbox"><i class="notika-icon {{$item['icon']}} "></i>  {{$item['text']}}</a>
+                         {{-- {{dd{$item}}} --}}
+
+              @if (isset($item['target']))
+                        <li><a data-toggle="tab" href="{{'#' . $item['target']}}"><i class="notika-icon {{$item['icon']}} "></i>  {{$item['text']}}</a>
                         </li>
+
+                        @else
+                        {{-- for single menu --}}             
+                          <li class="active "><a class="active-single" href=""><i class="notika-icon {{$item['icon']}}"></i> Home</a>
+                        </li>
+                         {{-- end single menu --}}
+                        @endif
+
                         @endforeach
                      
                     </ul>
