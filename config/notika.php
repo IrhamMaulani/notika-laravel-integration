@@ -19,15 +19,27 @@ return [
             'icon' => 'notika-app',
             'target' => 'mailbox',
             'nested' =>[
+                 [
                   'text' => 'main-data',
-                  'url' => 'data'
+                  'url' => 'data',
             ],
+                [
+                  'text' => 'main-s',
+                  'url' => 'data',
+            ],
+                        ],
       ],
 
        [
             'text' => 'Wew',
             'icon' => 'notika-draft',
             'target' => 'Interface',
+             'nested' =>[
+                  [
+                  'text' => 'main-wew',
+                  'url' => 'wew',
+                  ],
+            ],
       ],
 
       ],

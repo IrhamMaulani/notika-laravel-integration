@@ -115,7 +115,7 @@
 
 
 
-
+{{-- {{dd(config('notika.menus'))}}  --}}
 
 <div class="main-menu-area mg-tb-40">
         <div class="container">
@@ -126,133 +126,60 @@
                         {{-- for nested menu --}}
                          @foreach (config('notika.menus')  as $item)
 
-                
-
               @if (isset($item['target']))
                         <li><a data-toggle="tab" href="{{'#'. $item['target']}}"><i class="notika-icon {{$item['icon']}} "></i>  {{$item['text']}}</a>
                         </li>
 
+                 
+                        
                         @else
                         {{-- for single menu --}}    
-                        
-                     
-           
                     <li class="{{ request()->is($item['url']) ? 'active' : '' }}">
-                           
-                        
                         <a class="active-single" href="
                             {{ $item['url'] == '/' ? url('/') : $item['url'] }}">
-                        
                         <i class="notika-icon {{$item['icon']}}"> </i>{{$item['text']}}</a>
-
-                         
-
                         </li>
                          {{-- end single menu --}}
+
                         @endif
 
                         @endforeach
                      
                     </ul>
                     <div class="tab-content custom-menu-content">
-                        <div id="Home" class="tab-pane in active notika-tab-menu-bg animated flipInX">
-                        </div>
-                        <div id="mailbox" class="tab-pane notika-tab-menu-bg animated flipInX">
+
+                         @foreach (config('notika.menus')  as $item)
+
+                        
+
+                          @if (isset($item['target']))
+
+                       
+                          {{-- {{$item['nested']}} --}}
+
+                      
+
+                     
+
+                          <div id="{{$item['target']}}" class="tab-pane notika-tab-menu-bg animated flipInX">
+                              
                             <ul class="notika-main-menu-dropdown">
-                                <li><a href="inbox.html">Inbox</a>
+                                @foreach ($item['nested'] as $menu)
+                                <li><a href="{{$menu['url']}}">{{$menu['text']}}</a>
                                 </li>
-                                <li><a href="view-email.html">View Email</a>
-                                </li>
-                                <li><a href="compose-email.html">Compose Email</a>
-                                </li>
+                                       @endforeach 
                             </ul>
+                                           
                         </div>
-                        <div id="Interface" class="tab-pane notika-tab-menu-bg animated flipInX">
-                            <ul class="notika-main-menu-dropdown">
-                                <li><a href="animations.html">Animations</a>
-                                </li>
-                                <li><a href="google-map.html">Google Map</a>
-                                </li>
-                                <li><a href="data-map.html">Data Maps</a>
-                                </li>
-                                <li><a href="code-editor.html">Code Editor</a>
-                                </li>
-                                <li><a href="image-cropper.html">Images Cropper</a>
-                                </li>
-                                <li><a href="wizard.html">Wizard</a>
-                                </li>
-                            </ul>
-                        </div>
-                        <div id="Charts" class="tab-pane notika-tab-menu-bg animated flipInX">
-                            <ul class="notika-main-menu-dropdown">
-                                <li><a href="flot-charts.html">Flot Charts</a>
-                                </li>
-                                <li><a href="bar-charts.html">Bar Charts</a>
-                                </li>
-                                <li><a href="line-charts.html">Line Charts</a>
-                                </li>
-                                <li><a href="area-charts.html">Area Charts</a>
-                                </li>
-                            </ul>
-                        </div>
-                        <div id="Tables" class="tab-pane notika-tab-menu-bg animated flipInX">
-                            <ul class="notika-main-menu-dropdown">
-                                <li><a href="normal-table.html">Normal Table</a>
-                                </li>
-                                <li><a href="data-table.html">Data Table</a>
-                                </li>
-                            </ul>
-                        </div>
-                        <div id="Forms" class="tab-pane notika-tab-menu-bg animated flipInX">
-                            <ul class="notika-main-menu-dropdown">
-                                <li><a href="form-elements.html">Form Elements</a>
-                                </li>
-                                <li><a href="form-components.html">Form Components</a>
-                                </li>
-                                <li><a href="form-examples.html">Form Examples</a>
-                                </li>
-                            </ul>
-                        </div>
-                        <div id="Appviews" class="tab-pane notika-tab-menu-bg animated flipInX">
-                            <ul class="notika-main-menu-dropdown">
-                                <li><a href="notification.html">Notifications</a>
-                                </li>
-                                <li><a href="alert.html">Alerts</a>
-                                </li>
-                                <li><a href="modals.html">Modals</a>
-                                </li>
-                                <li><a href="buttons.html">Buttons</a>
-                                </li>
-                                <li><a href="tabs.html">Tabs</a>
-                                </li>
-                                <li><a href="accordion.html">Accordion</a>
-                                </li>
-                                <li><a href="dialog.html">Dialogs</a>
-                                </li>
-                                <li><a href="popovers.html">Popovers</a>
-                                </li>
-                                <li><a href="tooltips.html">Tooltips</a>
-                                </li>
-                                <li><a href="dropdown.html">Dropdowns</a>
-                                </li>
-                            </ul>
-                        </div>
-                        <div id="Page" class="tab-pane notika-tab-menu-bg animated flipInX">
-                            <ul class="notika-main-menu-dropdown">
-                                <li><a href="contact.html">Contact</a>
-                                </li>
-                                <li><a href="invoice.html">Invoice</a>
-                                </li>
-                                <li><a href="typography.html">Typography</a>
-                                </li>
-                                <li><a href="color.html">Color</a>
-                                </li>
-                                <li><a href="login-register.html">Login Register</a>
-                                </li>
-                                <li><a href="404.html">404 Page</a>
-                                </li>
-                            </ul>
-                        </div>
+                    
+  
+
+                          @endif
+
+                         @endforeach
+                     
+                      
+                        
                     </div>
                 </div>
             </div>
