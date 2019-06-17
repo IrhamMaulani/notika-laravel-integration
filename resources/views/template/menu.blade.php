@@ -130,23 +130,13 @@
               
               {{-- {{dd(basename(request()->path()))}} --}}
 
-                   {{-- Yang di jadikan acive --}}
                         <li class="@if(in_array(basename(request()->path()), $item['url'])) 
                         {{'active'}}
-                          @endif
-                        ">
+                          @endif">
                             <a data-toggle="tab" href="{{'#'. $item['target']}}"><i class="notika-icon {{$item['icon']}} "></i> {{$item['text']}}</a>
                         </li>
-                        
-
-                 
-                        
+      
                         @else
-                        {{-- for single menu --}}    
-
-                        {{-- {{$item['url'] == '' ? "fuck" : "BRUH MOMMENT"}} --}}
-                      
-                        
                     <li class="{{ request()->is($item['url'] == '' ? '/' : $item['url']) ? 'active' : '' }}">
                         <a class="active-single" href="{{ $item['url'] == '' ? url('/') : $item['url'] }}">
                         <i class="notika-icon {{$item['icon']}}"> </i>{{$item['text']}}</a>
@@ -170,20 +160,18 @@
                           <div id="{{$item['target']}}" class="tab-pane notika-tab-menu-bg animated flipInX 
                           @if(in_array(basename(request()->path()), $item['url'])) 
                         {{'active'}}
-                          @endif
-                          
-                          "> 
+                          @endif"> 
                               
                             <ul class="notika-main-menu-dropdown">
-                                @foreach ($item['nested'] as $menu)
+                                @foreach ($item['nested'] as $index => $menu)
 
                                 @if (isset($menu['target']))
                                     
                                 @endif
                                
 
-                                     @if (isset($item['target']) && isset($menu['text']) )
-                                <li><a href="">{{$menu['text']}}</a>
+                                @if (isset($item['target']) && isset($menu['text']) )
+                            <li><a href="{{ $item['url'][$index] }}">{{$menu['text']}}</a>
                                 </li>
 
                                 @endif

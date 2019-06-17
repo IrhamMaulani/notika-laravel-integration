@@ -11,7 +11,7 @@ return [
       'menus'    =>  [
             [
                   'text' =>   'Home',
-                  'url'  =>   '',
+                  'url'  =>   'sa',
                   'icon' =>   'notika-house',
             ],
       [
@@ -19,7 +19,7 @@ return [
             'icon' => 'notika-app',
             'target' => 'mailbox',
             'url' => [
-                  'a',
+                  '',
                   'data',
             ],
             'nested' =>[
