@@ -127,16 +127,28 @@
                          @foreach (config('notika.menus')  as $item)
 
               @if (isset($item['target']))
-                        <li><a data-toggle="tab" href="{{'#'. $item['target']}}"><i class="notika-icon {{$item['icon']}} "></i>  {{$item['text']}}</a>
+              
+              {{-- {{dd(basename(request()->path()))}} --}}
+
+                   {{-- Yang di jadikan acive --}}
+                        <li class="@if(in_array(basename(request()->path()), $item['url'])) 
+                        {{'active'}}
+                          @endif
+                        ">
+                            <a data-toggle="tab" href="{{'#'. $item['target']}}"><i class="notika-icon {{$item['icon']}} "></i> {{$item['text']}}</a>
                         </li>
+                        
 
                  
                         
                         @else
                         {{-- for single menu --}}    
-                    <li class="{{ request()->is($item['url']) ? 'active' : '' }}">
-                        <a class="active-single" href="
-                            {{ $item['url'] == '/' ? url('/') : $item['url'] }}">
+
+                        {{-- {{$item['url'] == '' ? "fuck" : "BRUH MOMMENT"}} --}}
+                      
+                        
+                    <li class="{{ request()->is($item['url'] == '' ? '/' : $item['url']) ? 'active' : '' }}">
+                        <a class="active-single" href="{{ $item['url'] == '' ? url('/') : $item['url'] }}">
                         <i class="notika-icon {{$item['icon']}}"> </i>{{$item['text']}}</a>
                         </li>
                          {{-- end single menu --}}
@@ -154,19 +166,27 @@
 
                           @if (isset($item['target']))
 
-                       
-                          {{-- {{$item['nested']}} --}}
-
-                      
-
-                     
-
-                          <div id="{{$item['target']}}" class="tab-pane notika-tab-menu-bg animated flipInX">
+                          {{-- Yang di jadikan acive --}}
+                          <div id="{{$item['target']}}" class="tab-pane notika-tab-menu-bg animated flipInX 
+                          @if(in_array(basename(request()->path()), $item['url'])) 
+                        {{'active'}}
+                          @endif
+                          
+                          "> 
                               
                             <ul class="notika-main-menu-dropdown">
                                 @foreach ($item['nested'] as $menu)
-                                <li><a href="{{$menu['url']}}">{{$menu['text']}}</a>
+
+                                @if (isset($menu['target']))
+                                    
+                                @endif
+                               
+
+                                     @if (isset($item['target']) && isset($menu['text']) )
+                                <li><a href="">{{$menu['text']}}</a>
                                 </li>
+
+                                @endif
                                        @endforeach 
                             </ul>
                                            
