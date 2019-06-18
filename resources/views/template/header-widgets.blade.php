@@ -1,3 +1,9 @@
+
+
+{{-- this is for widget in header. You can change and add something from here. 
+If You Want to Hide it, you can change default-widget-header to false --}}
+
+
 <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
                     <div class="header-top-menu">
                         <ul class="nav navbar-nav notika-top-nav">

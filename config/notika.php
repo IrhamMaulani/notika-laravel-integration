@@ -40,7 +40,7 @@ return [
             'icon' => 'notika-draft',
             'target' => 'Interface',
              'url' => [
-                   'a'
+                   'ca'
                   ],
              'nested' =>[
                   [
