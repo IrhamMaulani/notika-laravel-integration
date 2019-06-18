@@ -5,13 +5,15 @@ return [
 
       'title'   =>  'Notika Integration',
 
+      'default-header-widgets'    => true,
+
 
       // add target for nested menu
 
       'menus'    =>  [
             [
                   'text' =>   'Home',
-                  'url'  =>   'sa',
+                  'url'  =>   '',
                   'icon' =>   'notika-house',
             ],
       [
@@ -19,7 +21,7 @@ return [
             'icon' => 'notika-app',
             'target' => 'mailbox',
             'url' => [
-                  '',
+                  'dataaaa',
                   'data',
             ],
             'nested' =>[
