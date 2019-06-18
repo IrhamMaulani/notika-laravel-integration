@@ -5,8 +5,12 @@ return [
 
       'title'   =>  'Notika Integration',
 
+      // show or hide default widget.
+      // default widget can be found in header-widgets.blade.php
+
       'default-header-widgets'    => true,
 
+      'icon'      => 'img/favicon.ico',
 
       // add target for nested menu
 
@@ -16,38 +20,38 @@ return [
                   'url'  =>   '',
                   'icon' =>   'notika-house',
             ],
-      [
-            'text' => 'Data',
-            'icon' => 'notika-app',
-            'target' => 'mailbox',
-            'url' => [
-                  'dataaaa',
-                  'data',
-            ],
-            'nested' =>[
-            
-                 [
-                  'text' => 'main-data',
-            ],
-                [
-                  'text' => 'main-s',
-            ],
-                        ],
-      ],
+            [
+                  'text' => 'Data',
+                  'icon' => 'notika-app',
+                  'target' => 'mailbox',
+                  'url' => [
+                        'dataaaa',
+                        'data',
+                  ],
+                  'nested' => [
 
-       [
-            'text' => 'Wew',
-            'icon' => 'notika-draft',
-            'target' => 'Interface',
-             'url' => [
-                   'ca'
-                  ],
-             'nested' =>[
-                  [
-                  'text' => 'main-wew',
+                        [
+                              'text' => 'main-data',
+                        ],
+                        [
+                              'text' => 'main-s',
+                        ],
                   ],
             ],
-      ],
+
+            [
+                  'text' => 'Wew',
+                  'icon' => 'notika-draft',
+                  'target' => 'Interface',
+                  'url' => [
+                        'ca'
+                  ],
+                  'nested' => [
+                        [
+                              'text' => 'main-wew',
+                        ],
+                  ],
+            ],
 
       ],
 ];
