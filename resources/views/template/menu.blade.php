@@ -6,34 +6,21 @@
                     <div class="mobile-menu">
                         <nav id="dropdown">
                             <ul class="mobile-menu-nav">
-                                
-
                                      @foreach (config('notika.menus')  as $item)
-
                                         @if (isset($item['target']))
-                                        
-
                                      <li><a data-toggle="collapse" data-target="{{$item['target']}}" href="#">{{$item['text']}}</a>
                                     <ul class="collapse dropdown-header-top">
 
                                         @foreach($item['nested'] as $index=> $menu)
                                     <li><a href="{{ $item['url'][$index]}}">{{$menu['text']}}</a></li>
-                                       
-
                                         @endforeach
                                     </ul>
                                 </li>
-
                                 @else
-
                             <li><a href="{{$item['url']}}">{{$item['text']}}</a>
-                                   
                                       </li>
-
                                 @endif
-
                                      @endforeach
-        
                             </ul>
                         </nav>
                     </div>
@@ -42,7 +29,6 @@
         </div>
     </div>
     <!-- Mobile Menu end -->
-
 
 <div class="main-menu-area mg-tb-40">
         <div class="container">
@@ -55,7 +41,6 @@
 
                         @if (isset($item['target']))
               
-
                         <li class="@if(in_array(basename(request()->path()), $item['url'])) 
                         {{'active'}}
                           @endif">
