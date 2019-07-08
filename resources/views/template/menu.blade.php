@@ -6,9 +6,9 @@
                     <div class="mobile-menu">
                         <nav id="dropdown">
                             <ul class="mobile-menu-nav">
-                                     @foreach (config('notika.menus')  as $item)
+                                    @foreach (config('notika.menus')  as $item)
                                         @if (isset($item['target']))
-                                     <li><a data-toggle="collapse" data-target="{{$item['target']}}" href="#">{{$item['text']}}</a>
+                                    <li><a data-toggle="collapse" data-target="{{$item['target']}}" href="#">{{$item['text']}}</a>
                                     <ul class="collapse dropdown-header-top">
 
                                         @foreach($item['nested'] as $index=> $menu)
@@ -18,9 +18,9 @@
                                 </li>
                                 @else
                             <li><a href="{{$item['url']}}">{{$item['text']}}</a>
-                                      </li>
+                                    </li>
                                 @endif
-                                     @endforeach
+                                    @endforeach
                             </ul>
                         </nav>
                     </div>
@@ -48,28 +48,34 @@
                         </li>
       
                         @else
-                    <li class="{{ request()->is($item['url'] == '' ? '/' : $item['url']) ? 'active' : '' }}">
-                        <a class="active-single" href="{{ $item['url'] == '' ? url('/') : $item['url'] }}">
-                        <i class="notika-icon {{$item['icon']}}"> </i>{{$item['text']}}</a>
-                        </li>
-                         {{-- end single menu --}}
 
+                        {{-- @dd(basename(request()->path())) --}}
+
+                        @if (basename(request()->path()) == $item['url'])
+                            {{-- @dd(Request::url()) --}}
+                        @else
+                            
                         @endif
 
-                        @endforeach
+                        {{-- @dd(basename(request()->path())) --}}
                      
+                        <li class="{{ basename(request()->path()) == '' ? '/' : $item['url'] ? 'active' : '' }}">
+                        <a class="active-single" href="{{ $item['url'] == '' ? url('/') : Request::url() }}">
+                        <i class="notika-icon {{$item['icon']}}"> </i>{{$item['text']}}</a>
+                        </li>
+                        {{-- end single menu --}}
+                        @endif
+                        @endforeach
                     </ul>
                     <div class="tab-content custom-menu-content">
 
                         @foreach (config('notika.menus')  as $item)
 
                         @if (isset($item['target']))
-
-                          {{-- Yang di jadikan acive --}}
-                          <div id="{{$item['target']}}" class="tab-pane notika-tab-menu-bg animated flipInX 
-                          @if(in_array(basename(request()->path()), $item['url'])) 
+                        <div id="{{$item['target']}}" class="tab-pane notika-tab-menu-bg animated flipInX 
+                        @if(in_array(basename(request()->path()), $item['url'])) 
                         {{'active'}}
-                          @endif"> 
+                        @endif"> 
 
                             <ul class="notika-main-menu-dropdown">
                                 @foreach ($item['nested'] as $index => $menu)
@@ -87,12 +93,9 @@
                             </ul>
                         </div>
                     
-                          @endif
-
-                         @endforeach
-                     
-                      
-                        
+                        @endif
+                        @endforeach
+     
                     </div>
                 </div>
             </div>
