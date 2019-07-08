@@ -12,6 +12,8 @@ return [
 
       'icon'      => 'img/favicon.ico',
 
+      'footer-text' => 'Copyright © 2018 . All rights reserved. Template by Colorlib.',
+
       // add target for nested menu
 
       'menus'    =>  [
