@@ -58,9 +58,10 @@
                         @endif
 
                         {{-- @dd(basename(request()->path())) --}}
+                        
                      
-                        <li class="{{ basename(request()->path()) == '' ? '/' : $item['url'] ? 'active' : '' }}">
-                        <a class="active-single" href="{{ $item['url'] == '' ? url('/') : Request::url() }}">
+                        <li class="{{ basename(request()->path()) == '' ? '/' : basename(request()->path()) == $item['url'] ? 'active' : '' }}">
+                        <a class="active-single" href="{{ $item['url'] == '' ? url('/') : $item['url'] }}">
                         <i class="notika-icon {{$item['icon']}}"> </i>{{$item['text']}}</a>
                         </li>
                         {{-- end single menu --}}
